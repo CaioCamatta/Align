@@ -27,9 +27,7 @@ document.getElementById("snap").addEventListener("click", async function () {
   var image = canvas.toDataURL("image/jpeg");
 
   const imageData = await googleVision.analyzePhoto(image);
-  console.log("imageData", imageData)
-
-
+  console.log("imageData", imageData);
 
   context.beginPath();
   context.moveTo(imageData.boundingVerticies[0].x, imageData.boundingVerticies[0].y);
