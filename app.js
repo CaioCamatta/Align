@@ -1,12 +1,16 @@
 const electron = require('electron');
 const BrowserWindow = electron.remote.BrowserWindow;
 const { remote, ipcRenderer } = require('electron');
+const player = require('play-sound')(opts = {})
+
 
 //Notification Popup
+// var notificationSound = new Audio(require('./notification.mp3'));
 let win = null;
 function showNotification(){
 
     if (win == null) {
+
       let display = electron.screen.getPrimaryDisplay();
       let width = display.bounds.width;
 
@@ -22,7 +26,10 @@ function showNotification(){
       win.loadFile('popup.html');
     }
 
-    win.show();
+    if (win.isVisible() === false) {
+      player.play("assets/notification.mp3");
+      win.show();
+    }
 }
 
 function dismissNotification(){

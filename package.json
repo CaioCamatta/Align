@@ -14,14 +14,15 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/garethlau/Project-Y/issues"
+    "url": "https://github.com/garethlau/align/issues"
   },
-  "homepage": "https://github.com/garethlau/Project-Y#readme",
+  "homepage": "https://github.com/garethlau/align#readme",
   "devDependencies": {
     "electron": "^3.0.10"
   },
   "dependencies": {
     "node-fetch": "^2.3.0",
+    "play-sound": "^1.1.2",
     "xmlhttprequest": "^1.8.0"
   }
 }
