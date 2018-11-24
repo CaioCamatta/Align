@@ -25,3 +25,8 @@ module.exports.calibrate = (imageData) => {
   calibratedFace = imageData;
   console.log("Calibrated!", calibratedFace);
 };
+
+module.exports.getCalibrated = () => {
+  console.log("Saved data:", calibratedFace);
+  return calibratedFace
+};
