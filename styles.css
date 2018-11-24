@@ -1,7 +1,40 @@
+body {
+    background-color: #ffeff3;
+    font-family: 'Oxygen';
+}
+
+.text {
+    font-size: 22px;
+}
+
 .container-fluid {
     text-align: center;
 }
 
-.header {
-    color: #f9c5bb;
+.brand-logo {
+    text-size: 58px;
 }
+
+.card {
+    text-align: center;
+    background-color: #dddbdc;
+}
+
+.promo-caption {
+    font-weight: bold;
+}
+
+.light-center {
+    text-align: justify;
+    padding: 5px;
+}
+
+.card {
+    height: 360px;
+}
+
+#help {
+    text-align: center;
+
+}
+
