@@ -11,7 +11,7 @@ function createWindow () {
       width: 210,
       height: 400,
       frame: false,
-      icon: path.join(__dirname, 'icon64.png')
+      icon: path.join(__dirname, 'icon16.png')
   })
 
   // and load the index.html of the app.
@@ -38,7 +38,7 @@ app.on('ready', () => {
 
   // const nativeImage = NativeImage;
 
-  const iconPath = path.join(__dirname, 'icon64.png');
+  const iconPath = path.join(__dirname, 'icon22.png');
   tray = new Tray(iconPath);
   const contextMenu = Menu.buildFromTemplate([
     {label: 'Re-Calibrate', type: 'normal', click: () => {
