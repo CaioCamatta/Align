@@ -18,7 +18,6 @@ display: none;
 
 .nav-left {
     float: left;
-    -webkit-app-region: no-drag
 }
 
 .nav-center {
