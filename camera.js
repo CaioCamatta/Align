@@ -17,5 +17,10 @@ var context = canvas.getContext('2d');
 
 // Take the picture when button is pressed
 document.getElementById("snap").addEventListener("click", function() {
+  // Draw the image (we might not need this)
 	context.drawImage(video, 0, 0, 640, 480);
+
+  // Save image to variable
+  var image = canvas.toDataURL("image/jpeg");
+
 });
