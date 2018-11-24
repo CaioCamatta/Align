@@ -2,6 +2,8 @@
 // Variable to store calibration data
 var calibrationData = [100, 250, -6];
 
+let calibratedFace = {};
+
 // Main function to evaluate posture
 module.exports.posture = (imageData) => {
   outer_vertices = imageData.boundingVerticies;
@@ -39,9 +41,13 @@ module.exports.posture = (imageData) => {
   };
 };
 
-/*
-Types of bad posture:
-  head position
-  head proximity
-  tilt
-*/
+
+module.exports.calibrate = (imageData) => {
+  calibratedFace = imageData;
+  console.log("Calibrated!", calibratedFace);
+};
+
+module.exports.getCalibrated = () => {
+  console.log("Saved data:", calibratedFace);
+  return calibratedFace
+};

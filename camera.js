@@ -46,3 +46,22 @@ setInterval(async function(){
   console.log(algorithm.posture(imageData))
 
 }, INTERVAL);
+
+
+document.getElementById("calibrateBtn").addEventListener("click", function () {
+
+  context.drawImage(video, 0, 0, 640, 480);
+
+  // // Save image to variable
+  var image = canvas.toDataURL("image/jpeg");
+
+  googleVision.analyzePhoto(image).then((data) => {
+    console.log("image data", data);
+    algorithm.calibrate(data)
+  })
+});
+
+
+document.getElementById("statBtn").addEventListener("click", function () {
+  console.log(algorithm.getCalibrated())
+});
