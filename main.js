@@ -1,5 +1,5 @@
-const { app, BrowserWindow } = require('electron');
-
+const { app, BrowserWindow, Menu, Tray } = require('electron');
+const path = require("path");
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
@@ -38,9 +38,8 @@ app.on('ready', () => {
 
   // const nativeImage = NativeImage;
 
-  const iconPath = path.join(__dirname, "assets/icon.png");
-  const image = nativeImage.createFromPath(iconPath);
-  tray = new Tray(image);
+  const iconPath = path.join(__dirname, 'icon64.png');
+  tray = new Tray(iconPath);
   const contextMenu = Menu.buildFromTemplate([
     {label: 'Item1', type: 'radio'},
     {label: 'Item2', type: 'radio'},
