@@ -8,14 +8,13 @@ function notify(){
 
     let display = electron.screen.getPrimaryDisplay();
     let width = display.bounds.width;
-    let height = display.bounds.height;
 
     let win = new BrowserWindow({
         width: 280,
         height: 80,
         movable: true,
         x: width - 300,
-        y: height - 100,
+        y: 20,
         frame: false,
     })
     win.loadFile('popup.html');
@@ -55,17 +54,6 @@ function calibrateDone(){
 //minimize program window
 document.getElementById('minimize').addEventListener('click', (event) => {
     remote.getCurrentWindow().minimize();
-});
-
-//min or max program window
-document.getElementById('min-max').addEventListener('click', (event) => {
-    const currentWindow = remote.getCurrentWindow();
-    if (currentWindow.isMaximized()){
-        currentWindow.unmaximize();
-    }
-    else{
-        currentWindow.maximize();
-    }
 });
 
 //exit program
