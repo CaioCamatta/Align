@@ -4,11 +4,14 @@ var calibrationData = [100];
 
 // Main function to evaluate posture
 module.exports.posture = (imageData) => {
-  vertices = imageData.boundingVerticies;
+  outer_vertices = imageData.boundingVerticies;
+  inner_vertices = imageData.fdBoundingVerticies;
+  roll = imageData.roll;
+  pan = imageData.pan;
+  tilt =imageData.tilt;
 
   // Compare current image with calibration data
-  if(vertices[0].y < calibrationData[0]){
-    console.log(vertices[0].y);
+  if(outer_vertices[0].y < calibrationData[0]){
     return true;
   } else {
     return false;

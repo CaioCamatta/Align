@@ -23,10 +23,12 @@ module.exports.analyzePhoto = (imageContent) => {
 
     important_data  = {
       "boundingVerticies": data.responses[0].faceAnnotations[0].boundingPoly.vertices,
-
+      "fdBoundingVerticies": data.responses[0].faceAnnotations[0].fdBoundingPoly.vertices,
+      "roll": data.responses[0].faceAnnotations[0].rollAngle,
+      "pan": data.responses[0].faceAnnotations[0].panAngle,
+      "tilt": data.responses[0].faceAnnotations[0].tiltAngle,
     };
 
     return important_data
   }));
 };
-
