@@ -1,5 +1,6 @@
 const electron = require('electron');
 const BrowserWindow = electron.remote.BrowserWindow;
+const { remote, ipcRenderer } = require('electron');
 
 //Notification Popup
 function doNotify(){
@@ -40,7 +41,22 @@ function calibrateDone(){
 
     setTimeout(function() { document.getElementById("calibrateBtn").innerHTML = "Calibrate"; }, 5000);
 
-
-
 }
 
+document.getElementById('minimize').addEventListener('click', (event) => {
+    remote.getCurrentWindow().minimize();
+});
+
+document.getElementById('min-max').addEventListener('click', (event) => {
+    const currentWindow = remote.getCurrentWindow();
+    if (currentWindow.isMaximized()){
+        currentWindow.unmaximize();
+    }
+    else{
+        currentWindow.maximize();
+    }
+});
+
+document.getElementById('exit').addEventListener('click', (event) => {
+    remote.app.quit();
+});

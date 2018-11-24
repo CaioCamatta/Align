@@ -7,6 +7,24 @@ body {
     font-size: 22px;
 }
 
+::-webkit-scrollbar {
+display: none;
+}
+
+.nav-wrapper {
+    -webkit-app-region: drag;
+}
+
+.nav-left {
+    float: left;
+    -webkit-app-region: no-drag
+}
+
+.nav-right {
+    float: right;
+    -webkit-app-region: no-drag
+}
+
 .container-fluid {
     text-align: center;
 }

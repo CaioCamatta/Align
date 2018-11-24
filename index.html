@@ -18,8 +18,30 @@
   </head>
   <body>
 
-    <!--HEADER-->
-    <nav>
+  <!--HEADER-->
+  <nav>
+      <div class="nav-wrapper">
+          <div class="nav-left">
+              <ul>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Statistics</a></li>
+                <li><a href="#">Settings</a></li>
+          </ul>
+          </div>
+          <a href="#" class="brand-logo"><b>Align</b></a>
+          <div class="nav-right">
+            <ul>
+                <li><a href="#" id="minimize">Minimize</a></li>
+                <li><a href="#" id="min-max">Maximize</a></li>
+                <li><a href="#" id="exit" style="padding-left: 30px; padding-right: 30px">Exit</a></li>
+            </ul>
+          </div>
+      </div>
+  </nav>
+
+
+
+    <!--<nav>
         <div class="nav-wrapper">
             <a href="#" class="brand-logo"><b>Align</b></a>
             <ul id="nav-mobile" class="right">
@@ -28,7 +50,7 @@
                 <li><a href="#">Settings</a></li>
           </ul>
         </div>
-    </nav>
+    </nav>-->
 
 <!--    <div class="row">
         <div class="col s4">
@@ -66,11 +88,17 @@
 
     <!--SPACER LOL-->
     <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row"></div>
+    <div class="row" id="calibrate_anchor"></div>
+    <div class="row"></div>
 
     <!--calibrate button-->
     <div class="row">
         <div class="container-fluid">
-            <a href="#calibrateBtn">
+            <a href="#calibrate_anchor">
                 <button class="waves-effect waves-light btn-large" id="calibrateBtn" onclick="calibrate()">Calibrate</button>
             </a>
             <script src="app.js"></script>
