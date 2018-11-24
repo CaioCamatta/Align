@@ -2,11 +2,19 @@
 body {
     background-color: #ffeff3;
     font-family: 'Oxygen';
+    y-overflow: none;
+}
+
+.head {
+    font-size: 20px;
+    text-align: center;
 }
 
 .text {
-    font-size: 22px;
+    font-size: 18px;
+    padding: none;
 }
+
 
 ::-webkit-scrollbar {
 display: none;
@@ -35,6 +43,4 @@ display: none;
     text-align: center;
 }
 
-#help {
-    text-align: center;
-}
+
