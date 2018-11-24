@@ -11,8 +11,8 @@ function showNotification(){
       let width = display.bounds.width;
 
       win = new BrowserWindow({
-        width: 280,
-        height: 80,
+        width: 340,
+        height: 120,
         movable: true,
         x: width - 300,
         y: 20,
@@ -30,6 +30,9 @@ function dismissNotification(){
     win.hide()
   }
 }
+
+
+
 
 //Enter calibration process
 function calibrate(){
