@@ -41,10 +41,12 @@ app.on('ready', () => {
   const iconPath = path.join(__dirname, 'icon64.png');
   tray = new Tray(iconPath);
   const contextMenu = Menu.buildFromTemplate([
-    {label: 'Item1', type: 'radio'},
-    {label: 'Item2', type: 'radio'},
-    {label: 'Item3', type: 'radio', checked: true},
-    {label: 'Item4', type: 'radio'}
+    {label: 'Re-Calibrate', type: 'normal', click: () => {
+      win.webContents.executeJavaScript(
+      "document.getElementById('calibrateBtn').click()")
+    }},
+    {label: '', type: 'separator'},
+    {label: 'Quit', type: 'normal', click: () => {app.quit()}},
   ]);
   tray.setToolTip('This is my application.');
   tray.setContextMenu(contextMenu)
