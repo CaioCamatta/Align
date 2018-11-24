@@ -46,7 +46,6 @@ function calibrateDone(){
     document.getElementById("calibrateBtn").innerHTML = "All set!";
     var helperInfo = document.getElementById("help");
     helperInfo.style.display = "none";
-
     setTimeout(function() { document.getElementById("calibrateBtn").innerHTML = "Calibrate"; }, 5000);
 
 }

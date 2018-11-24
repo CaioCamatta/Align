@@ -1,10 +1,8 @@
-const { app, BrowserWindow, Menu, Tray} = require('electron');
-const nativeImage = require('electron').nativeImage;
-const path = require('path');
+const { app, BrowserWindow } = require('electron');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let win
+let win;
 
 function createWindow () {
   // Create the browser window.
@@ -13,6 +11,7 @@ function createWindow () {
       width: 800,
       height: 600,
       frame: false,
+      icon: path.join(__dirname, 'icon64.png')
   })
 
   // and load the index.html of the app.
