@@ -8,6 +8,7 @@ function createWindow () {
   // Create the browser window.
 
   win = new BrowserWindow({
+      title: "Align",
       width: 210,
       height: 400,
       frame: false,
@@ -39,7 +40,7 @@ app.on('ready', () => {
 
   // const nativeImage = NativeImage;
 
-  const iconPath = path.join(__dirname, 'icon64.png');
+  const iconPath = path.join(__dirname, 'icon22.png');
   tray = new Tray(iconPath);
   const contextMenu = Menu.buildFromTemplate([
     {label: 'Re-Calibrate', type: 'normal', click: () => {

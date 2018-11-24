@@ -18,8 +18,20 @@
 <div class="container-fluid bg-2">
     <div class="content">
         <p>Warning! Your posture is not ideal.</p>
+              <button class="waves-effect waves-light btn-small" id="dismissBtn" onclick="calibrate()"><i id="loadIcon" class="fa fa-spinner fa-spin" style="display:none; padding-right: 5px;"></i> Dismiss </button>
+
     </div>
 </div>
 
 </body>
+
+<script>
+    const remote = require('electron').remote;
+
+    document.getElementById("dismissBtn").addEventListener("click", function (e) {
+       var window = remote.getCurrentWindow();
+       window.hide();
+  });
+
+</script>
 </html>
