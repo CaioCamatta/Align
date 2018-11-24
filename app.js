@@ -57,17 +57,6 @@ document.getElementById('minimize').addEventListener('click', (event) => {
     remote.getCurrentWindow().minimize();
 });
 
-//min or max program window
-document.getElementById('min-max').addEventListener('click', (event) => {
-    const currentWindow = remote.getCurrentWindow();
-    if (currentWindow.isMaximized()){
-        currentWindow.unmaximize();
-    }
-    else{
-        currentWindow.maximize();
-    }
-});
-
 //exit program
 document.getElementById('exit').addEventListener('click', (event) => {
     remote.app.quit();
