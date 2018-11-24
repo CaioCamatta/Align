@@ -1,0 +1,25 @@
+body {
+    background-color: #ffeff3;
+    font-family: 'Oxygen';
+}
+
+
+.header{
+    text-align: center;
+    text-size: 12px;
+    padding: 5px;
+}
+
+.bg-1{
+    background: #ef9a9a;
+    padding-top: 0px;
+}
+
+.bg-2{
+    background: #ffeff3;
+}
+.content {
+    text-size: 12px;
+    text-align: center;
+
+}

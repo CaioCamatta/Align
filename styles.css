@@ -1,3 +1,4 @@
+/*index.html*/
 body {
     background-color: #ffeff3;
     font-family: 'Oxygen';
@@ -20,6 +21,12 @@ display: none;
     -webkit-app-region: no-drag
 }
 
+.nav-center {
+    display: inline-block;
+    float: none;
+    align: center;
+}
+
 .nav-right {
     float: right;
     -webkit-app-region: no-drag
@@ -33,26 +40,11 @@ display: none;
     text-size: 58px;
 }
 
-.card {
-    text-align: center;
-    background-color: #dddbdc;
-}
-
-.promo-caption {
-    font-weight: bold;
-}
-
 .light-center {
     text-align: justify;
     padding: 5px;
 }
 
-.card {
-    height: 360px;
-}
-
 #help {
     text-align: center;
-
 }
-
