@@ -43,7 +43,11 @@ setInterval(async function(){
 
   context.fill();
 
-  console.log(algorithm.posture(imageData))
+  const isPostureGood = algorithm.posture(imageData);
+
+  if (isPostureGood === false) {
+    notify()
+  }
 
 }, INTERVAL);
 
