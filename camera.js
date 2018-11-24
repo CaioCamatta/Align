@@ -1,12 +1,8 @@
-<<<<<<< HEAD
 /* This file takes care of taking the pictures */
-=======
+// Google API stuff
 const { remote } = require('electron');
 const googleVision = remote.require("./vision.js");
 
-/* This file takes care of taking the pictures */
-
->>>>>>> 46c4be03830401c2cd299c2b44c85dda42033693
 // Reference the video element
 var video = document.getElementById('video');
 var canvas = document.getElementById('canvas');
@@ -16,7 +12,7 @@ var context = canvas.getContext('2d');
 var localStream;
 
 // Interval between snapshots
-const INTERVAL = 4000;
+const INTERVAL = 5000;
 
 // Get access to the camera
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -29,26 +25,15 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     });
 }
 
-setInterval(function(){
+setInterval(async function(){
 
-<<<<<<< HEAD
-=======
-// Take the picture when button is pressed
-document.getElementById("snap").addEventListener("click", async function () {
-  // Draw the image (we might not need this)
->>>>>>> 46c4be03830401c2cd299c2b44c85dda42033693
   context.drawImage(video, 0, 0, 640, 480);
 
   // Save image to variable
   var image = canvas.toDataURL("image/jpeg");
 
-<<<<<<< HEAD
-  console.log(image)
-
-}, INTERVAL);
-=======
   const imageData = await googleVision.analyzePhoto(image);
-  console.log("imageData", imageData);
+  console.log("imageData", imageData)
 
   context.beginPath();
   context.moveTo(imageData.boundingVerticies[0].x, imageData.boundingVerticies[0].y);
@@ -58,5 +43,4 @@ document.getElementById("snap").addEventListener("click", async function () {
 
   context.fill();
 
-});
->>>>>>> 46c4be03830401c2cd299c2b44c85dda42033693
+}, INTERVAL);
