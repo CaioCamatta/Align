@@ -2,6 +2,8 @@
 // Variable to store calibration data
 var calibrationData = [100];
 
+let calibratedFace = {};
+
 // Main function to evaluate posture
 module.exports.posture = (imageData) => {
   vertices = imageData.boundingVerticies;
@@ -13,4 +15,10 @@ module.exports.posture = (imageData) => {
   } else {
     return false;
   };
+};
+
+
+module.exports.calibrate = (imageData) => {
+  calibratedFace = imageData;
+  console.log("Calibrated!", calibratedFace);
 };
