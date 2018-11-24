@@ -1,12 +1,16 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Project Y</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+  <div class="container-fluid">
+    <h1 class="header">Project Y</h1>
+    <button class="waves-effect waves-light btn" onclick="calibrate">Calibrate</button>
+    <script src="app.js"></script>
+  </div>
   </body>
 </html>

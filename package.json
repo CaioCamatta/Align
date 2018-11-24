@@ -19,5 +19,6 @@
   "homepage": "https://github.com/garethlau/Project-Y#readme",
   "devDependencies": {
     "electron": "^3.0.10"
-  }
+  },
+  "dependencies": {}
 }
