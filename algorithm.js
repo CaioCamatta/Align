@@ -16,7 +16,7 @@ module.exports.posture = (imageData) => {
   if(outer_vertices[0].y < calibrationData[0]){
     console.log('Head position: good')
   } else {
-    console.log('Head too low!')
+    console.log('Head too low!');
     return false;
   };
 
@@ -28,7 +28,7 @@ module.exports.posture = (imageData) => {
   if(current_box_size < calibration_box_size){
     console.log('Head proximity: good')
   } else {
-    console.log('Head too close!')
+    console.log('Head too close!');
     return false;
   };
 
@@ -36,7 +36,7 @@ module.exports.posture = (imageData) => {
   if(tilt > calibrationData[2]){
     console.log('Head tilt: good')
   } else {
-    console.log('Head too tilted!')
+    console.log('Head too tilted!');
     return false;
   };
 };

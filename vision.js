@@ -21,14 +21,20 @@ module.exports.analyzePhoto = (imageContent) => {
 
   }).then(function(response) { return response.json(); }).then((data => {
 
-    important_data  = {
-      "boundingVerticies": data.responses[0].faceAnnotations[0].boundingPoly.vertices,
-      "fdBoundingVerticies": data.responses[0].faceAnnotations[0].fdBoundingPoly.vertices,
-      "roll": data.responses[0].faceAnnotations[0].rollAngle,
-      "pan": data.responses[0].faceAnnotations[0].panAngle,
-      "tilt": data.responses[0].faceAnnotations[0].tiltAngle,
-    };
+    let important_data;
 
+    try {
+       important_data  = {
+        "boundingVerticies": data.responses[0].faceAnnotations[0].boundingPoly.vertices,
+        "fdBoundingVerticies": data.responses[0].faceAnnotations[0].fdBoundingPoly.vertices,
+        "roll": data.responses[0].faceAnnotations[0].rollAngle,
+        "pan": data.responses[0].faceAnnotations[0].panAngle,
+        "tilt": data.responses[0].faceAnnotations[0].tiltAngle,
+      };
+    } catch {
+      console.log("ERROR GETTING FACE DATA");
+      important_data = data
+    }
     return important_data
   }));
 };
