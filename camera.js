@@ -1,26 +1,33 @@
-/* This file takes care of taking the pictures */4
-
+/* This file takes care of taking the pictures */
 // Reference the video element
 var video = document.getElementById('video');
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+
+// Create variable that that references stream
+var localStream;
+
+// Interval between snapshots
+const INTERVAL = 4000;
 
 // Get access to the camera
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
         video.srcObject = stream;
         video.play();
+
+        // Keep reference of the stream so we can stop it later
+        localStream = stream;
     });
 }
 
-// Elements for taking the photo
-var canvas = document.getElementById('canvas');
-var context = canvas.getContext('2d');
+setInterval(function(){
 
-// Take the picture when button is pressed
-document.getElementById("snap").addEventListener("click", function() {
-  // Draw the image (we might not need this)
-	context.drawImage(video, 0, 0, 640, 480);
+  context.drawImage(video, 0, 0, 640, 480);
 
   // Save image to variable
   var image = canvas.toDataURL("image/jpeg");
 
-});
+  console.log(image)
+
+}, INTERVAL);
