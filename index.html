@@ -1,5 +1,13 @@
 <html>
   <head>
+    <!--style media="screen">
+      video{
+        display: none;
+      }
+      canvas{
+        display: none;
+      }
+    </style-->
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="styles.css">
@@ -7,10 +15,18 @@
     <title>Project Y</title>
   </head>
   <body>
+
   <div class="container-fluid">
     <h1 class="header">Project Y</h1>
     <button class="waves-effect waves-light btn" onclick="calibrate">Calibrate</button>
     <script src="app.js"></script>
   </div>
+
+    <h1>Hello World!</h1>
+    <video id="video" width="640" height="480" autoplay></video>
+    <button id="snap">Take Picture</button>
+    <canvas id="canvas" width="640" height="480"></canvas>
+
   </body>
+  <script src="camera.js"></script>
 </html>

@@ -20,5 +20,12 @@
   "devDependencies": {
     "electron": "^3.0.10"
   },
+
   "dependencies": {}
+
+  "dependencies": {
+    "node-fetch": "^2.3.0",
+    "xmlhttprequest": "^1.8.0"
+  }
+
 }
