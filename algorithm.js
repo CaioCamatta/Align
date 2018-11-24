@@ -1,11 +1,15 @@
 /* This files receives the image data as input and tells you whether your posture is good or not*/
 // Variable to store calibration data
-var calibrationData = [100, 250, -6];
-
 let calibratedFace = {};
+
+// Margins of error for the calibration data
+const POSITION_LIMIT = 30; // Allow head to be X pixels lower than calibration.
+const PROXIMITY_LIMIT = 20; // Allow head box size to be X pixels greater than calibration.
+const TILT_LIMIT = 4; // Allow head tilt to be X degrees lower than calibration.
 
 // Main function to evaluate posture
 module.exports.posture = (imageData) => {
+  console.log(imageData)
   // Current image data
   const inner_vertices = imageData.fdBoundingVerticies;
   const roll = imageData.roll;
@@ -19,7 +23,7 @@ module.exports.posture = (imageData) => {
   const c_tilt =calibratedFace.tilt;
 
   // Check head position
-  if(inner_vertices[0].y < c_inner_vertices[0].y){
+  if(inner_vertices[0].y < c_inner_vertices[0].y + POSITION_LIMIT){
     console.log('Head position: good')
   } else {
     console.log('Head too low!');
@@ -28,7 +32,7 @@ module.exports.posture = (imageData) => {
 
   // Check head proximity
   const current_box_size = inner_vertices[1].x - inner_vertices[0].x;
-  const calibration_box_size = c_inner_vertices[1].x - c_inner_vertices[0].x;
+  const calibration_box_size = c_inner_vertices[1].x - c_inner_vertices[0].x + PROXIMITY_LIMIT;
 
   // Compare the size of the calibration box to the current box size
   if(current_box_size < calibration_box_size){
@@ -39,7 +43,7 @@ module.exports.posture = (imageData) => {
   }
 
   // Check head tilt
-  if(tilt > c_tilt){
+  if(tilt > c_tilt - TILT_LIMIT){
     console.log('Head tilt: good')
   } else {
     console.log('Head too tilted!');
@@ -47,7 +51,6 @@ module.exports.posture = (imageData) => {
   }
   return true
 };
-
 
 module.exports.calibrate = (imageData) => {
   calibratedFace = imageData;
