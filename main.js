@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow } = require('electron');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -49,6 +49,11 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+
+minimizeApp = () => {
+    win.minimize();
+};
 
 
 // In this file you can include the rest of your app's specific main process

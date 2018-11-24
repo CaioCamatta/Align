@@ -54,6 +54,9 @@ module.exports.posture = (imageData) => {
 
 module.exports.calibrate = (imageData) => {
   calibratedFace = imageData;
+
+  minimizeApp();
+
   console.log("Calibrated!", calibratedFace);
 };
 
