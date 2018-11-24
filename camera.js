@@ -1,6 +1,5 @@
 /* This file takes care of taking the pictures */
 // Google API stuff
-showNotification();
 const googleVision = remote.require("./vision.js");
 const algorithm = remote.require("./algorithm.js");
 
