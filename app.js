@@ -4,20 +4,29 @@ const { remote, ipcRenderer } = require('electron');
 
 //Notification Popup
 function doNotify(){
+
+
+    let display = electron.screen.getPrimaryDisplay();
+    let width = display.bounds.width;
+    let height = display.bounds.height;
+
     let win = new BrowserWindow({
-        width: 300,
-        height: 120,
+        width: 280,
+        height: 80,
+        movable: true,
+        x: width - 300,
+        y: height - 100,
         frame: false,
     })
-    win.setPosition(500,500)
     win.loadFile('popup.html');
-    setTimeout(function(){ win.close() }, 3000);
+    setTimeout(function(){ win.close() }, 5000);
 }
 
 //Enter calibration process
 function calibrate(){
     document.getElementById("calibrateBtn").innerHTML = "Calibrating...";
 
+    //show help text while calibrating
     var x = document.getElementById("help");
     if (x.style.display == "none") {
         x.style.display = "block";
@@ -43,10 +52,12 @@ function calibrateDone(){
 
 }
 
+//minimize program window
 document.getElementById('minimize').addEventListener('click', (event) => {
     remote.getCurrentWindow().minimize();
 });
 
+//min or max program window
 document.getElementById('min-max').addEventListener('click', (event) => {
     const currentWindow = remote.getCurrentWindow();
     if (currentWindow.isMaximized()){
@@ -57,6 +68,7 @@ document.getElementById('min-max').addEventListener('click', (event) => {
     }
 });
 
+//exit program
 document.getElementById('exit').addEventListener('click', (event) => {
     remote.app.quit();
 });
