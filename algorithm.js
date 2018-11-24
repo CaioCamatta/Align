@@ -6,14 +6,22 @@ let calibratedFace = {};
 
 // Main function to evaluate posture
 module.exports.posture = (imageData) => {
+  // Current image data
   outer_vertices = imageData.boundingVerticies;
   inner_vertices = imageData.fdBoundingVerticies;
   roll = imageData.roll;
   pan = imageData.pan;
   tilt =imageData.tilt;
 
+  // Calibration data
+  c_outer_vertices = calibratedFace.boundingVerticies;
+  c_inner_vertices = calibratedFace.fdBoundingVerticies;
+  c_roll = calibratedFace.roll;
+  c_pan = calibratedFace.pan;
+  c_tilt =calibratedFace.tilt;
+
   // Check head position
-  if(outer_vertices[0].y < calibrationData[0]){
+  if(outer_vertices[0].y < c_outer_vertices[0].y){
     console.log('Head position: good')
   } else {
     console.log('Head too low!')
@@ -22,7 +30,7 @@ module.exports.posture = (imageData) => {
 
   // Check head proximity
   current_box_size = inner_vertices[1].x - inner_vertices[0].x;
-  calibration_box_size = calibrationData[1];
+  calibration_box_size = c_inner_vertices[1].x - c_inner_vertices[0].x;
 
   // Compare the size of the calibration box to the current box size
   if(current_box_size < calibration_box_size){
@@ -33,7 +41,7 @@ module.exports.posture = (imageData) => {
   };
 
   // Check head tilt
-  if(tilt > calibrationData[2]){
+  if(tilt > c_tilt){
     console.log('Head tilt: good')
   } else {
     console.log('Head too tilted!')
