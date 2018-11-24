@@ -13,56 +13,60 @@ var localStream;
 
 // Interval between snapshots
 const INTERVAL = 10000;
-
-// Get access to the camera
-if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
-        video.srcObject = stream;
-        video.play();
-
-        // Keep reference of the stream so we can stop it later
-        localStream = stream;
-    });
-}
+let calibrated = false;
 
 setInterval(async function(){
+  if(calibrated){
+    context.drawImage(video, 0, 0, 640, 480);
 
-  context.drawImage(video, 0, 0, 640, 480);
+    // Save image to variable
+    var image = canvas.toDataURL("image/jpeg");
 
-  // Save image to variable
-  var image = canvas.toDataURL("image/jpeg");
+    const imageData = await googleVision.analyzePhoto(image);
+    console.log("imageData", imageData)
 
-  const imageData = await googleVision.analyzePhoto(image);
-  console.log("imageData", imageData)
+    context.beginPath();
+    context.moveTo(imageData.boundingVerticies[0].x, imageData.boundingVerticies[0].y);
+    context.lineTo(imageData.boundingVerticies[1].x, imageData.boundingVerticies[1].y);
+    context.lineTo(imageData.boundingVerticies[2].x, imageData.boundingVerticies[2].y);
+    context.lineTo(imageData.boundingVerticies[3].x, imageData.boundingVerticies[3].y);
 
-  context.beginPath();
-  context.moveTo(imageData.boundingVerticies[0].x, imageData.boundingVerticies[0].y);
-  context.lineTo(imageData.boundingVerticies[1].x, imageData.boundingVerticies[1].y);
-  context.lineTo(imageData.boundingVerticies[2].x, imageData.boundingVerticies[2].y);
-  context.lineTo(imageData.boundingVerticies[3].x, imageData.boundingVerticies[3].y);
+    context.fill();
 
-  context.fill();
+    const isPostureGood = algorithm.posture(imageData);
 
-  const isPostureGood = algorithm.posture(imageData);
-
-  if (isPostureGood === false) {
-    notify()
+    if (isPostureGood === false) {
+      notify()
+    }
   }
-
 }, INTERVAL);
 
 
-document.getElementById("calibrateBtn").addEventListener("click", function () {
+document.getElementById("calibrateBtn").addEventListener("click", async function () {
+// Get access to the camera after user presses calibration button
+  if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+          video.srcObject = stream;
+          video.play();
 
-  context.drawImage(video, 0, 0, 640, 480);
+          // Keep reference of the stream so we can stop it later
+          localStream = stream;
+      });
+  }
 
-  // // Save image to variable
-  var image = canvas.toDataURL("image/jpeg");
+  // Wait 1.5s before we take the calibration picture (about the time it takes for the camera to turn on)
+  setTimeout(function(){
+    context.drawImage(video, 0, 0, 640, 480);
 
-  googleVision.analyzePhoto(image).then((data) => {
-    console.log("image data", data);
-    algorithm.calibrate(data)
-  })
+    // // Save image to variable
+    var image = canvas.toDataURL("image/jpeg");
+
+    googleVision.analyzePhoto(image).then((data) => {
+      console.log("image data", data);
+      algorithm.calibrate(data)
+      calibrated = true;
+    })
+  }, 1500);
 });
 
 
