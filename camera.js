@@ -13,9 +13,12 @@ var localStream;
 
 // Interval between snapshots
 const INTERVAL = 10000;
+
+// Use this variable to only allow the algorithm to run after calibration
 let calibrated = false;
 
 setInterval(async function(){
+  // Start running the algorithm after calibration
   if(calibrated){
     context.drawImage(video, 0, 0, 640, 480);
 
@@ -68,7 +71,6 @@ document.getElementById("calibrateBtn").addEventListener("click", async function
     })
   }, 1500);
 });
-
 
 document.getElementById("statBtn").addEventListener("click", function () {
   console.log(algorithm.getCalibrated())
