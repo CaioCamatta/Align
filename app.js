@@ -23,17 +23,18 @@ function notify(){
 
 //Enter calibration process
 function calibrate(){
-    document.getElementById("calibrateBtn").innerHTML = "Calibrating...";
 
     //show help text while calibrating
+    var icon = document.getElementById("loadIcon");
     var x = document.getElementById("help");
     if (x.style.display == "none") {
         x.style.display = "block";
+        icon.style.display = "block";
     }
     else {
         x.style.display = "none";
+        icon.style.display = "none";
     }
-
     //Calibration process goes here
 
     //Call reset process
