@@ -21,6 +21,12 @@ display: none;
     -webkit-app-region: no-drag
 }
 
+.nav-center {
+    display: inline-block;
+    float: none;
+    align: center;
+}
+
 .nav-right {
     float: right;
     -webkit-app-region: no-drag

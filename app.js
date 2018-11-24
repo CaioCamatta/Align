@@ -3,7 +3,7 @@ const BrowserWindow = electron.remote.BrowserWindow;
 const { remote, ipcRenderer } = require('electron');
 
 //Notification Popup
-function doNotify(){
+function notify(){
 
 
     let display = electron.screen.getPrimaryDisplay();

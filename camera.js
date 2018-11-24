@@ -1,6 +1,5 @@
 /* This file takes care of taking the pictures */
 // Google API stuff
-const { remote } = require('electron');
 const googleVision = remote.require("./vision.js");
 
 // Reference the video element
