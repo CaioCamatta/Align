@@ -3,22 +3,32 @@ const BrowserWindow = electron.remote.BrowserWindow;
 const { remote, ipcRenderer } = require('electron');
 
 //Notification Popup
-function notify(){
+let win = null;
+function showNotification(){
 
+    if (win == null) {
+      let display = electron.screen.getPrimaryDisplay();
+      let width = display.bounds.width;
 
-    let display = electron.screen.getPrimaryDisplay();
-    let width = display.bounds.width;
-
-    let win = new BrowserWindow({
+      win = new BrowserWindow({
         width: 280,
         height: 80,
         movable: true,
         x: width - 300,
         y: 20,
         frame: false,
-    })
-    win.loadFile('popup.html');
-    setTimeout(function(){ win.close() }, 5000);
+        show: false,
+      });
+      win.loadFile('popup.html');
+    }
+
+    win.show();
+}
+
+function dismissNotification(){
+  if (win != null) {
+    win.hide()
+  }
 }
 
 //Enter calibration process

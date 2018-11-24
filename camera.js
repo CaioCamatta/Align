@@ -12,7 +12,7 @@ var context = canvas.getContext('2d');
 var localStream;
 
 // Interval between snapshots
-const INTERVAL = 10000;
+const INTERVAL = 500;
 
 // Use this variable to only allow the algorithm to run after calibration
 let calibrated = false;
@@ -38,8 +38,10 @@ setInterval(async function(){
 
     const isPostureGood = algorithm.posture(imageData);
 
-    if (isPostureGood === false) {
-      notify()
+    if (isPostureGood) {
+      dismissNotification()
+    } else {
+      showNotification()
     }
   }
 }, INTERVAL);
