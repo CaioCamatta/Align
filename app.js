@@ -8,14 +8,13 @@ function notify(){
 
     let display = electron.screen.getPrimaryDisplay();
     let width = display.bounds.width;
-    let height = display.bounds.height;
 
     let win = new BrowserWindow({
         width: 280,
         height: 80,
         movable: true,
         x: width - 300,
-        y: height - 100,
+        y: 20,
         frame: false,
     })
     win.loadFile('popup.html');
