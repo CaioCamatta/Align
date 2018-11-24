@@ -1,7 +1,7 @@
 /* This file takes care of taking the pictures */
 // Google API stuff
-const { remote } = require('electron');
 const googleVision = remote.require("./vision.js");
+const algorithm = remote.require("./algorithm.js");
 
 // Reference the video element
 var video = document.getElementById('video');
@@ -12,7 +12,7 @@ var context = canvas.getContext('2d');
 var localStream;
 
 // Interval between snapshots
-const INTERVAL = 5000;
+const INTERVAL = 10000;
 
 // Get access to the camera
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -42,5 +42,7 @@ setInterval(async function(){
   context.lineTo(imageData.boundingVerticies[3].x, imageData.boundingVerticies[3].y);
 
   context.fill();
+
+  console.log(algorithm.posture(imageData))
 
 }, INTERVAL);
