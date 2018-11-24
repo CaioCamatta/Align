@@ -8,6 +8,7 @@ function createWindow () {
   // Create the browser window.
 
   win = new BrowserWindow({
+      title: "Align",
       width: 210,
       height: 400,
       frame: false,
