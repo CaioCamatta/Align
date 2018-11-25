@@ -48,9 +48,7 @@ function calibrate(){
 
     //show help text while calibrating
     var icon = document.getElementById("loadIcon");
-    var x = document.getElementById("help");
-    if (x.style.display == "none") {
-        x.style.display = "block";
+    if (icon.style.display == "none") {
         icon.style.display = "block";
     }
     else {
