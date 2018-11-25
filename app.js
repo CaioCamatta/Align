@@ -12,8 +12,8 @@ function showNotification(){
 
     if (win == null) {
 
-      let display = electron.screen.getPrimaryDisplay();
-      let width = display.bounds.width;
+    let display = electron.screen.getPrimaryDisplay();
+    let width = display.bounds.width;
 
       win = new BrowserWindow({
         width: 340,
@@ -39,6 +39,7 @@ function dismissNotification(){
   if (win != null) {
     win.hide();
   }
+  shown = false
 }
 
 
@@ -46,13 +47,13 @@ function dismissNotification(){
 //Enter calibration process
 function calibrate(){
 
+
     //show help text while calibrating
     var icon = document.getElementById("loadIcon");
     if (icon.style.display == "none") {
         icon.style.display = "block";
     }
     else {
-        x.style.display = "none";
         icon.style.display = "none";
     }
     //Calibration process goes here
