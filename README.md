@@ -16,7 +16,9 @@ ElectronJS was used to build a cross platform desktop application that uses your
 
 We are prout to be able to tackle such a prominent issue that millions are facing everyday through an elegant and simple solution. Align will make a change in the workplace, school, and home.
 
-![Interface](program.JPG)
+
+
+<p align="center">![Interface](program.JPG)</p>
 
 ![Image Recognition](marketing_image.png)
 
