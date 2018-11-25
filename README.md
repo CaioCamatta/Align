@@ -18,7 +18,7 @@ We are prout to be able to tackle such a prominent issue that millions are facin
 
 
 
-<p align="center">src="program.JPG</p>
+<p align="center">src="program.JPG"</p>
 
 ![Interface](program.JPG)
 
