@@ -1,58 +1,35 @@
 const electron = require('electron');
 const BrowserWindow = electron.remote.BrowserWindow;
 const { remote, ipcRenderer } = require('electron');
-const player = require('play-sound')(opts = {})
-
 
 //Notification Popup
-// var notificationSound = new Audio(require('./notification.mp3'));
-let win = null;
-function showNotification(){
+function notify(){
 
-    if (win == null) {
 
-      let display = electron.screen.getPrimaryDisplay();
-      let width = display.bounds.width;
+    let display = electron.screen.getPrimaryDisplay();
+    let width = display.bounds.width;
 
-      win = new BrowserWindow({
-        width: 340,
-        height: 120,
+    let win = new BrowserWindow({
+        width: 280,
+        height: 80,
         movable: true,
         x: width - 300,
         y: 20,
         frame: false,
-        show: false,
-      });
-      win.loadFile('popup.html');
-    }
-
-    if (win.isVisible() === false) {
-      player.play("assets/notification.mp3");
-      win.show();
-    }
+    })
+    win.loadFile('popup.html');
+    setTimeout(function(){ win.close() }, 5000);
 }
-
-function dismissNotification(){
-  if (win != null) {
-    win.hide()
-  }
-}
-
-
-
 
 //Enter calibration process
 function calibrate(){
 
     //show help text while calibrating
     var icon = document.getElementById("loadIcon");
-    var x = document.getElementById("help");
-    if (x.style.display == "none") {
-        x.style.display = "block";
+    if (icon.style.display == "none") {
         icon.style.display = "block";
     }
     else {
-        x.style.display = "none";
         icon.style.display = "none";
     }
     //Calibration process goes here

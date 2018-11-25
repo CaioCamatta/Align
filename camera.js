@@ -71,7 +71,7 @@ document.getElementById("calibrateBtn").addEventListener("click", async function
       algorithm.calibrate(data)
       calibrated = true;
     })
-  }, 4000);
+  }, 1500);
 });
 
 document.getElementById("statBtn").addEventListener("click", function () {
