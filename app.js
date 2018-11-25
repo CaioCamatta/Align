@@ -11,8 +11,19 @@ let shown = false;
 function showNotification(){
 
     if (win == null) {
+      buildNotificationWindow()
+    }
 
-    let display = electron.screen.getPrimaryDisplay();
+    if (win.isVisible() === false && shown === false) {
+      player.play("assets/notification.mp3");
+      win.show();
+      shown = true;
+      setTimeout(() => {shown = false}, 300000) // alerts the user after 5 mins (300000)
+    }
+}
+
+function buildNotificationWindow() {
+  let display = electron.screen.getPrimaryDisplay();
     let width = display.bounds.width;
 
       win = new BrowserWindow({
@@ -25,14 +36,6 @@ function showNotification(){
         show: false,
       });
       win.loadFile('popup.html');
-    }
-
-    if (win.isVisible() === false && shown === false) {
-      player.play("assets/notification.mp3");
-      win.show();
-      shown = true;
-      setTimeout(() => {shown = false}, 300000) // alerts the user after 5 mins (300000)
-    }
 }
 
 function dismissNotification(){
@@ -46,7 +49,7 @@ function dismissNotification(){
 
 //Enter calibration process
 function calibrate(){
-
+    buildNotificationWindow();
 
     //show help text while calibrating
     var icon = document.getElementById("loadIcon");
