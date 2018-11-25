@@ -7,4 +7,4 @@ We are proud that we were able tackle such a prominent issue through a solution 
 
 ![Interface](program.JPG)
 
-![Image Recognition](vision-api.JPG)
+![Image Recognition](marketing_image.png)
