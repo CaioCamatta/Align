@@ -1,12 +1,13 @@
 const electron = require('electron');
 const BrowserWindow = electron.remote.BrowserWindow;
-const { remote, ipcRenderer } = require('electron');
+const { remote, ipcRenderer, ipcMain } = require('electron');
 const player = require('play-sound')(opts = {})
 
 
 //Notification Popup
 // var notificationSound = new Audio(require('./notification.mp3'));
 let win = null;
+let shown = false;
 function showNotification(){
 
     if (win == null) {
@@ -26,18 +27,19 @@ function showNotification(){
       win.loadFile('popup.html');
     }
 
-    if (win.isVisible() === false) {
+    if (win.isVisible() === false && shown === false) {
       player.play("assets/notification.mp3");
       win.show();
+      shown = true;
+      setTimeout(() => {shown = false}, 300000) // alerts the user after 5 mins (300000)
     }
 }
 
 function dismissNotification(){
   if (win != null) {
-    win.hide()
+    win.hide();
   }
 }
-
 
 
 
