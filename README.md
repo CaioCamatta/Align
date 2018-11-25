@@ -17,16 +17,24 @@ ElectronJS was used to build a cross platform desktop application that uses your
 We are prout to be able to tackle such a prominent issue that millions are facing everyday through an elegant and simple solution. Align will make a change in the workplace, school, and home.
 
 <p align="center">
+  Align interface
+</p>
+
+<p align="center">
   <img src="program.JPG">
 </p>
-Align interface
+
+<p align="center">
+  Image recognition
+</p>
 
 <p align="center">
   <img src="marketing_image.png">
 </p>
-Image recognition
+
 
 Statistics from:
  - https://amp.fastcompany.com/3049548/3-surprising-ways-your-posture-impacts-your-success
  - https://www.itproportal.com/2015/08/28/theres-more-than-pain-at-risk-from-poor-posture/
  - https://www.alliedtravelcareers.com/blog/8-negative-effects-of-bad-posture/
+ - https://www.goupstate.com/news/20100511/experts-say-posture-matters-the-good--and-the-bad
