@@ -5,6 +5,6 @@ We used ElectronJS to build a cross platform desktop app that uses your webcam a
 
 We are proud that we were able tackle such a prominent issue through a solution that is very simple to use, and that can actually make a change in the workplace, school and home.
 
-![Interface](program.jpg)
+![Interface](program.JPG)
 
-![Image Recognition](vision-api.jpg)
+![Image Recognition](vision-api.JPG)
