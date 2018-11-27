@@ -1,5 +1,5 @@
 # HackWestern V Winner - Most Potential to Propel
-Developed by Matthew Danics (@mdanics), Caio C. Coelho (@CaioCamatta), Gareth Lau (@garethlau)
+Developed by Matthew Danics ([@mdanics](https://github.com/mdanics)), Caio C. Coelho ([@CaioCamatta](https://github.com/CaioCamatta)), Gareth Lau ([@garethlau](https://github.com/garethlau))
 
 # Align
 Bad posture is extremely common amongst individuals across North America. More emplyees across North America are required to spend longer periods of time seated infront of desktops or laptops, increasing the likelihood of developing bad posture habits. It is estimated that 70% of America's workforce complains about back pain cause by poor posture. It is one of the most common complaints amongst the human resource departments nationwide. Poor posture is the leading cause of disability amongst emplyees under the age of 45. Issues caused by poor posture has cost American employees 7 billion dollars. Bad posture can lead to:
